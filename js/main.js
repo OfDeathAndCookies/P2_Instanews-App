@@ -3,23 +3,20 @@
 
 $(function(){   //General API call
 
-	
-	$('#selectBtn').on("change", function() {      //Change menu option
-			$("#newsGallery").empty();
-			console.log(newsGallery);
+	$('#selectBtn').on('change', function() {      //Change menu option
+		$('#newsGallery').empty();
 
 		var newsCategory = event.target.value;
 
 		$('#loadingAjax').show();
 
 		$.ajax({																	 //Get information from specific category
-		  method: "GET",
-		  url: 'https://api.nytimes.com/svc/topstories/v2/' + newsCategory + '.json?' + 
-			$.param({"api-key": "b76abdc620b044a8aeec75d713dcdb0f"})
+			method: 'GET',
+			url: 'https://api.nytimes.com/svc/topstories/v2/' + newsCategory + '.json?' + 
+			$.param({'api-key': '9hT2g6DSGje8L7m2Vum1Htpx8YAtgv2k'})
 		})
 
 		.done(function(data) {
-			console.log(data.results);
 			var count = 0;
 			$.each(data.results, function(index, data){ 	//Post individual title and image		
 				// console.log(data.title);
